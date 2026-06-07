@@ -2,9 +2,21 @@ import sqlite3
 import re
 import pandas as pd
 import os
+import shutil
 from openai import OpenAI
 
-DATABASE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "hr_database.db")
+# Handle Vercel read-only filesystem by copying or seeding database in writeable /tmp
+if os.environ.get("VERCEL"):
+    DATABASE_PATH = "/tmp/hr_database.db"
+    if not os.path.exists(DATABASE_PATH):
+        try:
+            from db_setup import create_database, seed_database
+            create_database(DATABASE_PATH)
+            seed_database(DATABASE_PATH)
+        except Exception as e:
+            pass
+else:
+    DATABASE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "hr_database.db")
 
 # Schema description for the database (passed to OpenAI LLM)
 DB_SCHEMA_INFO = """

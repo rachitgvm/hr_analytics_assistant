@@ -27,6 +27,7 @@ app = dash.Dash(
 
 # App server for production deployment (if needed)
 server = app.server
+application = server
 
 # Custom styling configurations for plotly figures to match dark dashboard aesthetic
 PLOTLY_TEMPLATE = "plotly_dark"
