@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+:root {
+    --bg-color: #0b0f19;
+    --panel-bg: rgba(17, 24, 39, 0.75);
+    --panel-border: rgba(255, 255, 255, 0.06);
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --accent-color: #6366f1;
+    --accent-hover: #4f46e5;
+    --accent-glow: rgba(99, 102, 241, 0.3);
+    --success-color: #10b981;
+    --success-glow: rgba(16, 185, 129, 0.2);
+    --error-color: #f43f5e;
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'Space Grotesk', 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.1) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.05) 0px, transparent 50%);
+    background-attachment: fixed;
+}
+
+/* Glassmorphic Panel/Card */
+.glass-panel {
+    background: var(--panel-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--panel-border);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-panel:hover {
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+}
+
+/* Login Page Layout */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 440px;
+    padding: 40px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(16px);
+}
+
+/* Form Controls styling */
+.custom-input {
+    background-color: rgba(31, 41, 55, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-primary) !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    font-size: 15px !important;
+    transition: all 0.3s ease !important;
+}
+
+.custom-input:focus {
+    background-color: rgba(31, 41, 55, 0.8) !important;
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 0 0 3px var(--accent-glow) !important;
+    outline: none !important;
+}
+
+.custom-btn-primary {
+    background-color: var(--accent-color) !important;
+    border: none !important;
+    color: white !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease !important;
+    cursor: pointer;
+}
+
+.custom-btn-primary:hover {
+    background-color: var(--accent-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--accent-glow) !important;
+}
+
+.custom-btn-primary:active {
+    transform: translateY(1px);
+}
+
+.custom-btn-secondary {
+    background-color: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: var(--text-primary) !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    font-weight: 500 !important;
+    font-size: 15px !important;
+    transition: all 0.3s ease !important;
+}
+
+.custom-btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Sidebar styling */
+.sidebar {
+    background: rgba(15, 23, 42, 0.7);
+    border-right: 1px solid var(--panel-border);
+    backdrop-filter: blur(20px);
+    padding: 24px;
+    min-height: 100vh;
+}
+
+.nav-link-custom {
+    color: var(--text-secondary);
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.nav-link-custom:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-link-custom.active {
+    color: white;
+    background: var(--accent-color);
+    box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+/* Custom Table Styling for Dash DataTable */
+.dash-spreadsheet-container .dash-spreadsheet {
+    border: 1px solid var(--panel-border) !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+}
+
+.dash-header {
+    background-color: rgba(17, 24, 39, 0.9) !important;
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+    border-bottom: 1px solid var(--panel-border) !important;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.dash-cell {
+    background-color: rgba(31, 41, 55, 0.3) !important;
+    color: var(--text-secondary) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+    font-size: 14px;
+}
+
+.dash-cell.focused {
+    background-color: rgba(31, 41, 55, 0.6) !important;
+    border: 1px solid var(--accent-color) !important;
+}
+
+/* KPI Cards */
+.kpi-card {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--accent-color);
+}
+
+.kpi-card.success::before {
+    background-color: var(--success-color);
+}
+
+.kpi-val {
+    font-family: var(--font-mono);
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 10px 0 5px 0;
+    background: linear-gradient(to right, #ffffff, #9ca3af);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* SQL Code Block Panel */
+.sql-panel {
+    background-color: #060913 !important;
+    border: 1px solid rgba(99, 102, 241, 0.15) !important;
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    color: #a5b4fc;
+    font-size: 14px;
+    padding: 16px;
+    overflow-x: auto;
+    position: relative;
+}
+
+.sql-panel::after {
+    content: 'SQL';
+    position: absolute;
+    top: 6px;
+    right: 12px;
+    font-size: 10px;
+    font-weight: bold;
+    color: rgba(99, 102, 241, 0.4);
+    letter-spacing: 1px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Chat bubble aesthetics */
+.chat-bubble-user {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 18px 18px 2px 18px;
+    margin-bottom: 16px;
+    align-self: flex-end;
+    max-width: 80%;
+    box-shadow: 0 4px 10px var(--accent-glow);
+}
+
+.chat-bubble-bot {
+    background-color: rgba(31, 41, 55, 0.7);
+    border: 1px solid var(--panel-border);
+    color: var(--text-primary);
+    padding: 14px 20px;
+    border-radius: 18px 18px 18px 2px;
+    margin-bottom: 16px;
+    align-self: flex-start;
+    max-width: 85%;
+}
+
+/* Tab container overrides */
+.nav-tabs {
+    border-bottom: 1px solid var(--panel-border) !important;
+}
+
+.nav-tabs .nav-link {
+    color: var(--text-secondary) !important;
+    border: none !important;
+    border-bottom: 2px solid transparent !important;
+    background-color: transparent !important;
+    font-weight: 500 !important;
+    padding: 12px 20px !important;
+    transition: all 0.3s ease !important;
+}
+
+.nav-tabs .nav-link:hover {
+    color: var(--text-primary) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--accent-color) !important;
+    border-bottom-color: var(--accent-color) !important;
+    background-color: transparent !important;
+}
+
+/* General Grid Helpers */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 24px;
+}
