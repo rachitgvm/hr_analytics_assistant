@@ -1031,6 +1031,10 @@ def handle_data_entry_submit(n_clicks, first_name, last_name, email, age, dept, 
         conn.close()
 
 
+# Expose Flask server as app on Vercel to bypass Dash instance WSGI call mismatch
+if os.environ.get("VERCEL"):
+    app = app.server
+
 # Run local web server
 if __name__ == '__main__':
     app.run(debug=True, port=8050)
